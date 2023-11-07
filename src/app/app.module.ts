@@ -21,7 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { WorkshopPipe } from './workshop/workshop.pipe';
 import{HttpClientModule} from '@angular/common/http';
 import { MethodsComponent } from './methods/methods.component';
-
+//import{StorageServiceModule} from 'angular-webstorage-service';
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,5 +1,5 @@
 
-import { HttpClient ,HttpHeaders} from '@angular/common/http';
+import { HttpClient ,HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot,Router, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 
@@ -26,14 +26,26 @@ export class AuthService implements CanActivate {
    notify(){
     const headers =new HttpHeaders({
       'content-type':'application/json',
-      'authenticationToken':'1234565'
-
     });
- return this.http.get('https://jsonplaceholder.typicode.com/users',{headers:headers});
+  
+    return this.http.get('https://jsonplaceholder.typicode.com/posts', {headers: headers});
    }
 
+  sign(body){
+   const pbody={
+      title:body.firstName,
+      name: body.lastName,
+      body: body.email,
+     
+    };
+    this.http.post('https://jsonplaceholder.typicode.com/users',body);
+  }
    //constructor(private httpClient: HttpClient){}
-  getimg(){
-   return this.http.get('https://jsonplaceholder.typicode.com/posts');
+  getimg(url){
+    console.log(url);
+    const headers =new HttpHeaders({
+      'content-type':'application/json',
+    });
+   return this.http.get(url,{headers: headers});
   }
 }

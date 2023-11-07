@@ -10,4 +10,11 @@ export class HeaderComponent {
   goBackToHome() {
     this.router.navigate(['/']); // Navigate to the base URL
   }
+//getitem local storage
+  getUsername(): string {
+    const username = localStorage.getItem('username');
+    return username ? username : 'Guest'; // Return 'Guest' if username is not found
+    console.log("username:",username);
+  }
+
 }
